@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Resume
+title: Resume | Allison Lizaso
 ---
 
 <h1>Allison Lizaso</h1>
@@ -39,7 +39,7 @@ title: Resume
 **Boise State University**  
 *Cyber Operations and Resilience, BS*  
 *Computer Science, Minor*  
-*Boise, ID — May 2027*
+*Expected May 2027*
 
 ## Skills
 
