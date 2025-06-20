@@ -1,2 +1,4 @@
-title: Allison Lizaso Resume
-description: Personal resume page
+title: Allison Lizaso Website
+description: Interactive Resume for Cybersecurity Professionals
+baseurl: ""   # set if your site is deployed to a subfolder
+url: "https://allison-lizaso.github.io"
