@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>{{ page.title }}</title>
+  <title>{{ page.title | default: site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
-      --text-color: #fff;
-      --background-color: #000;
+      --text-color: #000;
+      --background-color: #fff;
       --accent-color: #4da6ff;
+      --underline-color: #4da6ff;
     }
 
     body {
@@ -19,17 +20,68 @@
       padding: 2em;
       line-height: 1.6;
       font-size: 1em;
+      text-align: center;
+    }
+
+    nav {
+      background-color: var(--background-color);
+      border-bottom: 2px solid var(--underline-color);
+      padding: 1em 0;
+      margin-bottom: 2em;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      margin: 0 1.5em;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     h1 {
-      text-align: center;
       font-size: 2em;
       margin-bottom: 0.2em;
+      text-align: center;
+    }
+
+    .contact-line {
+      text-align: center;
+      font-size: 0.95em;
+      margin-bottom: 1em;
+      border-bottom: 2px solid var(--underline-color);
+      padding-bottom: 0.5em;
     }
 
     h2 {
       font-size: 1.4em;
       margin-top: 2em;
+      border-bottom: 2px solid var(--underline-color);
+      padding-bottom: 0.3em;
+      display: inline-block;
+    }
+
+    /* Indent content under each section */
+    h2 + p,
+    h2 + ul,
+    h2 + p + ul,
+    p + ul,
+    ul {
+      text-align: left;
+      max-width: 650px;
+      margin: 0.5em auto 0 auto;
+      padding-left: 1.2em;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+
+    li {
+      margin-bottom: 0.5em;
     }
 
     a {
@@ -39,20 +91,6 @@
 
     a:hover {
       text-decoration: underline;
-    }
-
-    .contact-line {
-      text-align: center;
-      font-size: 0.95em;
-      margin-bottom: 2em;
-    }
-
-    ul {
-      padding-left: 1.2em;
-    }
-
-    li {
-      margin-bottom: 0.5em;
     }
 
     @media (max-width: 600px) {
@@ -76,85 +114,14 @@
   </style>
 </head>
 <body>
-  <h1>Allison Lizaso</h1>
-  <div class="contact-line">
-    Emmett, ID | (208) 369-3197 | <a href="mailto:alizaso97@gmail.com">alizaso97@gmail.com</a>
-  </div>
 
-  <h2>Work Experience</h2>
-  <p><strong>STEP-2 Participant</strong><br />
-  <em>National Center for Supercomputing Applications – Champaign, IL</em><br />
-  <em>June 2025 – August 2025</em></p>
-  <ul>
-    <li>Worked on-site with NCSA SecOps Analysts in order to gain hands-on experience with HPC cybersecurity</li>
-    <li>Relevant tools and skills: Qualys, Elastic, AWS, Splunk, Puppet, Ansible, Jira, shell scripting, networking opportunities with HPC professionals (PEARC)</li>
-  </ul>
+  <nav>
+    <a href="{{ '/' | relative_url }}">Resume</a>
+    <a href="{{ '/projects' | relative_url }}">Projects</a>
+    <a href="{{ '/about' | relative_url }}">About</a>
+  </nav>
 
-  <p><strong>Student Technical Support Specialist</strong><br />
-  <em>Boise State University Office of Information Technology – Boise, ID</em><br />
-  <em>September 2024 – Present</em></p>
-  <ul>
-    <li>Utilized PXE Boot, SCCM, and Active Directory software in order to upgrade student-facing and faculty devices</li>
-  </ul>
+  {{ content }}
 
-  <p><strong>STEP-1 Participant</strong><br />
-  <em>ACCESS-CI – Miami, FL</em><br />
-  <em>May 2024</em></p>
-  <ul>
-    <li>Participated in two weeks of educational workshops related to cybersecurity, networking, and cloud computing</li>
-    <li>Engaged with instructors and vendors to learn about the NSF ACCESS-CI high performance computer systems</li>
-  </ul>
-
-  <p><strong>Instructional Technologist</strong><br />
-  <em>Boise State University Learning Technology Solutions – Boise, ID</em><br />
-  <em>January 2024 – August 2024</em></p>
-  <ul>
-    <li>Sustained and updated an established knowledge base</li>
-    <li>Utilized IT service management software for resolving technical issues</li>
-  </ul>
-
-  <p><strong>IT Support Technician</strong><br />
-  <em>Boise State University Student Media Department – Boise, ID</em><br />
-  <em>August 2023 – May 2024</em></p>
-  <ul>
-    <li>Provided hardware and software support</li>
-    <li>Managed device rotation and hardware purchasing within department budget</li>
-  </ul>
-
-  <p><strong>Wastewater Collections Operator</strong><br />
-  <em>City of Caldwell – Caldwell, ID</em><br />
-  <em>September 2021 – April 2023</em></p>
-  <ul>
-    <li>Conveyed PACP inspection data and advocated cost-effective solutions</li>
-    <li>Operated Vactor 2100i sewer truck for maintenance</li>
-  </ul>
-
-  <h2>Awards & Certifications</h2>
-  <p><strong>Scholarship Recipient and Fellow</strong> | Micron Academy for Inclusive Leadership<br />
-  <em>August 2023</em></p>
-  <p><strong>Class A CDL with Tanker, Doubles and Triples Endorsements</strong> | Sage Technical Academy<br />
-  <em>September 2018</em></p>
-
-  <h2>Education</h2>
-  <p><strong>Boise State University</strong><br />
-  <em>Cyber Operations and Resilience, BS</em><br />
-  <em>Computer Science, Minor</em><br />
-  <em>Boise, ID — May 2027</em></p>
-
-  <h2>Skills</h2>
-  <ul>
-    <li>JavaScript</li>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>Active Directory</li>
-    <li>Git</li>
-    <li>ServiceNow</li>
-    <li>ArcGIS</li>
-    <li>SCCM</li>
-    <li>PXE Boot</li>
-    <li>Wonderware SCADA</li>
-    <li>Microsoft Suite</li>
-    <li>Google Suite</li>
-  </ul>
 </body>
 </html>
